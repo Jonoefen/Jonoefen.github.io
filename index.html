@@ -3,173 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Rossouw | Portfolio</title>
+    <title>Jonathan Rossouw | Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        
         :root {
             --primary: #38bdf8;
-            --accent: #818cf8;
+            --secondary: #818cf8;
         }
+
         body { 
-            background: radial-gradient(circle at top right, #1e293b, #0f172a); 
+            background-color: #020617; 
             color: #f8fafc; 
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
-        /* Animated Mesh Background */
-        .mesh-bg {
+
+        /* Dynamic Animated Background */
+        .aurora-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.3;
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(213,77%,14%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(199,89%,48%,0.15) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(242,82%,67%,0.1) 0, transparent 50%);
+            background: linear-gradient(125deg, #020617 0%, #0f172a 100%);
         }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(129, 140, 248, 0.1) 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            animation: move 25s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(20%, 20%); }
+        }
+
         .glass {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
         }
-        .hover-glow:hover {
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-            transform: translateY(-5px);
+
+        .glass:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+            transform: translateY(-8px);
         }
+
         .gradient-text {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        .section-tag {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
     </style>
 </head>
-<body class="font-sans">
+<body>
 
-    <div class="mesh-bg"></div>
+    <div class="aurora-bg">
+        <div class="blob" style="top: -100px; left: -100px;"></div>
+        <div class="blob" style="bottom: -100px; right: -100px; animation-delay: -5s;"></div>
+    </div>
 
-    <nav class="fixed top-0 w-full z-50 glass px-6 py-4">
+    <nav class="fixed top-0 w-full z-50 glass px-8 py-4">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <span class="font-bold tracking-tighter text-xl">JR<span class="text-sky-500">.</span></span>
-            <div class="flex gap-8 text-sm font-medium text-slate-300">
-                <a href="#projects" class="hover:text-sky-400 transition">Projects</a>
+            <span class="font-black text-2xl tracking-tighter uppercase italic">JR<span class="text-sky-500">.</span></span>
+            <div class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <a href="#about" class="hover:text-sky-400 transition">About</a>
+                <a href="#projects" class="hover:text-sky-400 transition">Code</a>
                 <a href="#leadership" class="hover:text-sky-400 transition">Leadership</a>
-                <a href="mailto:jonathanrossouw2@gmail.com" class="hover:text-sky-400 transition text-sky-400">Hire Me</a>
             </div>
+            <a href="mailto:jonathanrossouw2@gmail.com" class="bg-sky-500 text-white px-5 py-2 rounded-full text-xs font-bold hover:bg-sky-400 transition">CONTACT</a>
         </div>
     </nav>
 
     <section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
-        <div class="relative group">
-            <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-            <img src="Jonathan Headshot Comp.png" alt="Jonathan Rossouw" class="relative w-56 h-56 rounded-full border-2 border-slate-700 object-cover shadow-2xl">
+        <div class="relative mb-10">
+            <div class="absolute -inset-2 bg-gradient-to-r from-sky-500 to-indigo-600 rounded-full blur opacity-20"></div>
+            <img src="Jonathan Headshot Comp.png" alt="Jonathan Rossouw" class="relative w-52 h-52 rounded-full border-2 border-slate-800 object-cover grayscale hover:grayscale-0 transition duration-700">
         </div>
         
-        <h1 class="text-6xl md:text-8xl font-black mt-8 tracking-tight">
-            JONATHAN <span class="gradient-text">ROSSOUW</span>
+        <p class="section-tag mb-4">Available for Junior Dev Roles 2027</p>
+        <h1 class="text-6xl md:text-9xl font-black text-center tracking-tighter leading-none mb-6">
+            JONATHAN <br> <span class="gradient-text">ROSSOUW</span>
         </h1>
-        <p class="text-xl md:text-2xl text-slate-400 mt-4 max-w-3xl text-center font-light">
-            Software Engineer <span class="text-slate-600 px-2">|</span> 
-            ML Specialist <span class="text-slate-600 px-2">|</span> 
-            Finance HOD
-        </p>
+        
+        <div class="flex gap-4 mb-12">
+            <a href="https://github.com/Jonoefen" target="_blank" class="glass p-4 rounded-full text-xl hover:text-sky-400"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jonathan-rossouw" target="_blank" class="glass p-4 rounded-full text-xl hover:text-sky-400"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </section>
 
-        <div class="mt-10 flex gap-6">
-            <a href="https://github.com/jonathanrossouw" class="glass px-6 py-3 rounded-full hover-glow transition flex items-center gap-2">
-                <i class="fa-brands fa-github"></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/jonathan-rossouw" class="bg-sky-500 text-white px-8 py-3 rounded-full hover:bg-sky-400 transition shadow-lg shadow-sky-500/20 flex items-center gap-2">
-                <i class="fa-brands fa-linkedin"></i> LinkedIn
-            </a>
+    <section id="about" class="max-w-4xl mx-auto py-32 px-6">
+        <p class="section-tag mb-6">Introduction</p>
+        <h2 class="text-4xl font-bold mb-8 italic">"I build software that solves problems and lead teams that get things done."</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-slate-400 leading-relaxed font-light">
+            <p>
+                As a final-year Software Engineering student at **Belgium Campus iTversity**, I’ve spent my academic career mastering the intersection of Data Science and User Experience. I don’t just build models; I build tools that people can interact with—like my ML web apps deployed on Render.
+            </p>
+            <p>
+                Leadership is core to my identity. Whether managing departmental budgets as **Finance HOD** for the CLC or coaching high jump athletes, I am focused on high-performance results. I thrive where logic meets leadership, bringing a bilingual, disciplined approach to every project.
+            </p>
         </div>
     </section>
 
     <section id="projects" class="max-w-6xl mx-auto py-32 px-6">
-        <div class="flex items-center gap-4 mb-16">
-            <h2 class="text-4xl font-bold">Featured Projects</h2>
-            <div class="h-px bg-slate-700 flex-grow"></div>
+        <div class="flex items-end justify-between mb-16">
+            <div>
+                <p class="section-tag mb-2">Portfolio</p>
+                <h2 class="text-5xl font-bold">Latest Repositories</h2>
+            </div>
+            <a href="https://github.com/Jonoefen" class="text-sky-400 text-sm font-bold border-b border-sky-400 pb-1">VIEW ALL GITHUB</a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="glass p-1 rounded-3xl hover-glow transition-all">
-                <div class="p-8">
-                    <div class="flex justify-between items-start mb-6 text-sky-400 text-2xl">
-                        <i class="fa-solid fa-microchip"></i>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <a href="https://github.com/Jonoefen/Diabetes-Risk-Segmentation-and-Decision-Support-System" target="_blank" class="glass group p-8 rounded-3xl">
+                <div class="flex justify-between items-start mb-12">
+                    <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-500 text-2xl">
+                        <i class="fa-solid fa-heart-pulse"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">Diabetes Risk Analytics</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        An end-to-end Machine Learning deployment using <span class="text-slate-200">XGBoost</span> and <span class="text-slate-200">SHAP</span>. Features a real-time interactive dashboard for predictive health diagnostics.
-                    </p>
-                    <div class="flex gap-3">
-                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">PYTHON</span>
-                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">DASH</span>
-                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">RENDER</span>
-                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-sky-400 transition"></i>
                 </div>
-            </div>
+                <h3 class="text-2xl font-bold mb-4">Diabetes Risk Analytics</h3>
+                <p class="text-slate-400 text-sm mb-8">End-to-end ML deployment using XGBoost and SHAP. Built as a live DASH web application on Render.</p>
+                <div class="flex gap-4">
+                    <span class="text-[10px] font-black tracking-widest text-slate-500 uppercase">Python</span>
+                    <span class="text-[10px] font-black tracking-widest text-slate-500 uppercase">Machine Learning</span>
+                </div>
+            </a>
 
-            <div class="glass p-1 rounded-3xl hover-glow transition-all">
-                <div class="p-8">
-                    <div class="flex justify-between items-start mb-6 text-indigo-400 text-2xl">
-                        <i class="fa-solid fa-code-branch"></i>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+            <a href="https://github.com/Jonoefen/Credit-Risk-Assessment." target="_blank" class="glass group p-8 rounded-3xl">
+                <div class="flex justify-between items-start mb-12">
+                    <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500 text-2xl">
+                        <i class="fa-solid fa-chart-line"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">C# Tiered Architecture</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        A PRG282 Project implementing a rigorous <span class="text-slate-200">Domain-Data-Presentation</span> separation. Includes custom file handlers and automated summary reporting.
-                    </p>
-                    <div class="flex gap-3">
-                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">C#</span>
-                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">WINFORMS</span>
-                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">OOP</span>
-                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-sky-400 transition"></i>
                 </div>
-            </div>
+                <h3 class="text-2xl font-bold mb-4">Credit Risk Assessment</h3>
+                <p class="text-slate-400 text-sm mb-8">Predictive classification model for financial risk analysis utilizing Logistic Regression and Decision Trees.</p>
+                <div class="flex gap-4">
+                    <span class="text-[10px] font-black tracking-widest text-slate-500 uppercase">Data Science</span>
+                    <span class="text-[10px] font-black tracking-widest text-slate-500 uppercase">Finance</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/Jonoefen/Superhero-Registry-Management-System-" target="_blank" class="glass group p-8 rounded-3xl">
+                <div class="flex justify-between items-start mb-12">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500 text-2xl">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-sky-400 transition"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">C# Tiered Architecture</h3>
+                <p class="text-slate-400 text-sm mb-8">A robust WinForms application using Domain-Driven Design and custom data handlers.</p>
+                <div class="flex gap-4">
+                    <span class="text-[10px] font-black tracking-widest text-slate-500 uppercase">C# / .NET</span>
+                    <span class="text-[10px] font-black tracking-widest text-slate-500 uppercase">OOP Architecture</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/Jonoefen/RetroSlice-Restaurant-loyalty" target="_blank" class="glass group p-8 rounded-3xl">
+                <div class="flex justify-between items-start mb-12">
+                    <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 text-2xl">
+                        <i class="fa-solid fa-pizza-slice"></i>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-sky-400 transition"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Pizza Loyalty UX</h3>
+                <p class="text-slate-400 text-sm mb-8">C# Windows Forms project focusing on UX elements, timers, and customer point persistence.</p>
+                <div class="flex gap-4">
+                    <span class="text-[10px] font-black tracking-widest text-slate-500 uppercase">UI/UX Design</span>
+                    <span class="text-[10px] font-black tracking-widest text-slate-500 uppercase">WinForms</span>
+                </div>
+            </a>
         </div>
     </section>
 
     <section id="leadership" class="max-w-6xl mx-auto py-32 px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-            <div class="lg:col-span-1">
-                <h2 class="text-4xl font-bold mb-6">Leadership & <br><span class="text-sky-500">Soft Skills</span></h2>
-                <p class="text-slate-400 font-light italic border-l-2 border-sky-500 pl-4">
-                    "I thrive where technical logic meets human leadership."
-                </p>
+        <p class="section-tag mb-12">Experience & Impact</p>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="glass p-10 rounded-3xl lg:col-span-2">
+                <h3 class="text-3xl font-bold mb-6">Finance HOD <span class="text-slate-500">@ Campus Leadership Council</span></h3>
+                <p class="text-slate-400 font-light mb-8 italic">"Bridge the gap between technical strategy and financial governance."</p>
+                <ul class="space-y-4 text-slate-300">
+                    <li class="flex gap-4"><i class="fa-solid fa-check text-sky-500 mt-1"></i> Overseeing 2026 term financial roadmap and departmental spending.</li>
+                    <li class="flex gap-4"><i class="fa-solid fa-check text-sky-500 mt-1"></i> Preparing monthly financial reports for council stakeholders.</li>
+                    <li class="flex gap-4"><i class="fa-solid fa-check text-sky-500 mt-1"></i> Implementing transparent resource governance protocols.</li>
+                </ul>
             </div>
-            <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div class="glass p-6 rounded-2xl">
-                    <i class="fa-solid fa-landmark text-sky-500 mb-4 text-xl"></i>
-                    <h4 class="font-bold mb-2">HOD: Finance</h4>
-                    <p class="text-sm text-slate-400">Managing 2026 term budgetary governance for the CLC.</p>
-                </div>
-                <div class="glass p-6 rounded-2xl">
-                    <i class="fa-solid fa-stopwatch-20 text-indigo-500 mb-4 text-xl"></i>
-                    <h4 class="font-bold mb-2">High Jump Coach</h4>
-                    <p class="text-sm text-slate-400">Performance mentorship and biomechanical technical training.</p>
-                </div>
-                <div class="glass p-6 rounded-2xl">
-                    <i class="fa-solid fa-comments text-sky-500 mb-4 text-xl"></i>
-                    <h4 class="font-bold mb-2">Public Speaking</h4>
-                    <p class="text-sm text-slate-400">Departmental presentations and social advocacy.</p>
-                </div>
-                <div class="glass p-6 rounded-2xl">
-                    <i class="fa-solid fa-language text-indigo-500 mb-4 text-xl"></i>
-                    <h4 class="font-bold mb-2">Bilingual Proficiency</h4>
-                    <p class="text-sm text-slate-400">Fluent in English and Afrikaans for global communication.</p>
+            <div class="glass p-10 rounded-3xl">
+                <h3 class="text-2xl font-bold mb-6">Athletic Mentorship</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">As a **High Jump Coach**, I apply technical biomechanics to athlete performance. I thrive in high-pressure environments, whether tracking track metrics or managing code deployments.</p>
+                <div class="pt-6 border-t border-slate-800">
+                    <p class="text-xs font-bold uppercase tracking-widest text-indigo-400">Social Proficiency</p>
+                    <p class="text-slate-300 mt-2">Bilingual: English & Afrikaans</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 text-center border-t border-slate-800 glass">
-        <p class="text-slate-500 text-sm tracking-widest uppercase">Contact</p>
-        <h2 class="text-3xl font-bold mt-2 mb-8">Let's build something together.</h2>
-        <div class="flex justify-center gap-8 mb-12">
-            <a href="https://github.com/jonathanrossouw" class="hover:text-sky-400 transition text-2xl"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/jonathan-rossouw" class="hover:text-sky-400 transition text-2xl"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="mailto:jonathanrossouw2@gmail.com" class="hover:text-sky-400 transition text-2xl"><i class="fa-solid fa-envelope"></i></a>
+    <footer class="py-20 border-t border-slate-900 text-center">
+        <h2 class="text-4xl font-bold mb-8">Let's build the future.</h2>
+        <div class="flex justify-center gap-10 text-2xl text-slate-500 mb-12">
+            <a href="https://github.com/Jonoefen" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jonathan-rossouw" class="hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:jonathanrossouw2@gmail.com" class="hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
         </div>
-        <p class="text-slate-600 text-xs">&copy; 2026 Jonathan Rossouw. Handcrafted with Tailwind CSS.</p>
+        <p class="text-slate-600 text-xs tracking-widest uppercase">&copy; 2026 Jonathan Rossouw | Software Engineer</p>
     </footer>
 
 </body>
