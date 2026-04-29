@@ -3,92 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Rossouw | Software Engineer</title>
+    <title>Jonathan Rossouw | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #0f172a; color: #f8fafc; }
+        :root {
+            --primary: #38bdf8;
+            --accent: #818cf8;
+        }
+        body { 
+            background: radial-gradient(circle at top right, #1e293b, #0f172a); 
+            color: #f8fafc; 
+            overflow-x: hidden;
+        }
+        /* Animated Mesh Background */
+        .mesh-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(213,77%,14%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(199,89%,48%,0.15) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(242,82%,67%,0.1) 0, transparent 50%);
+        }
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+            transform: translateY(-5px);
+        }
         .gradient-text {
-            background: linear-gradient(to right, #38bdf8, #818cf8);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body class="font-sans leading-relaxed">
+<body class="font-sans">
 
-    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-        <div class="mb-8 relative">
-            <img src="Jonathan Headshot Comp.jpg" alt="Jonathan Rossouw" class="w-48 h-48 rounded-full border-4 border-sky-500 shadow-xl object-cover">
+    <div class="mesh-bg"></div>
+
+    <nav class="fixed top-0 w-full z-50 glass px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="font-bold tracking-tighter text-xl">JR<span class="text-sky-500">.</span></span>
+            <div class="flex gap-8 text-sm font-medium text-slate-300">
+                <a href="#projects" class="hover:text-sky-400 transition">Projects</a>
+                <a href="#leadership" class="hover:text-sky-400 transition">Leadership</a>
+                <a href="mailto:jonathanrossouw2@gmail.com" class="hover:text-sky-400 transition text-sky-400">Hire Me</a>
+            </div>
         </div>
-        <h1 class="text-5xl md:text-7xl font-bold mb-4">Jonathan <span class="gradient-text">Rossouw</span></h1>
-        <p class="text-xl md:text-2xl text-slate-400 max-w-2xl">
-            Aspiring Software Engineer & Finance HOD specializing in Machine Learning and Full-Stack Deployment.
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
+        <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+            <img src="Jonathan Headshot Comp.png" alt="Jonathan Rossouw" class="relative w-56 h-56 rounded-full border-2 border-slate-700 object-cover shadow-2xl">
+        </div>
+        
+        <h1 class="text-6xl md:text-8xl font-black mt-8 tracking-tight">
+            JONATHAN <span class="gradient-text">ROSSOUW</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400 mt-4 max-w-3xl text-center font-light">
+            Software Engineer <span class="text-slate-600 px-2">|</span> 
+            ML Specialist <span class="text-slate-600 px-2">|</span> 
+            Finance HOD
         </p>
-        <div class="mt-8 flex gap-6 text-3xl">
-            <a href="https://github.com/YOUR_USERNAME" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com/in/YOUR_PROFILE" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="mailto:jonathanrossouw2@gmail.com" class="hover:text-sky-400 transition-colors"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-    </header>
 
-    <section class="max-w-6xl mx-auto py-20 px-6">
-        <h2 class="text-3xl font-bold mb-12 border-b border-slate-700 pb-2 inline-block">Featured Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-sky-500 transition-all group">
-                <h3 class="text-2xl font-bold mb-2 group-hover:text-sky-400">Diabetes Risk Segmentation</h3>
-                <p class="text-slate-400 mb-4 text-sm uppercase tracking-widest font-semibold">Python • XGBoost • Dash • Render</p>
-                <p class="text-slate-300 mb-6">A full-stack ML application predicting health risks with SHAP-based interpretability.</p>
-                <a href="#" class="text-sky-400 font-medium hover:underline">View Source Code →</a>
-            </div>
-
-            <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-sky-500 transition-all group">
-                <h3 class="text-2xl font-bold mb-2 group-hover:text-sky-400">C# Tiered Architecture System</h3>
-                <p class="text-slate-400 mb-4 text-sm uppercase tracking-widest font-semibold">C# • WinForms • OOP</p>
-                <p class="text-slate-300 mb-6">A record management system utilizing Domain-Driven Design principles and custom serialization.</p>
-                <a href="#" class="text-sky-400 font-medium hover:underline">View Source Code →</a>
-            </div>
-
+        <div class="mt-10 flex gap-6">
+            <a href="https://github.com/jonathanrossouw" class="glass px-6 py-3 rounded-full hover-glow transition flex items-center gap-2">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/jonathan-rossouw" class="bg-sky-500 text-white px-8 py-3 rounded-full hover:bg-sky-400 transition shadow-lg shadow-sky-500/20 flex items-center gap-2">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
         </div>
     </section>
 
-    <section class="bg-slate-900/50 py-20 px-6">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div>
-                <h2 class="text-3xl font-bold mb-8">Technical Expertise</h2>
-                <div class="flex flex-wrap gap-3">
-                    <span class="px-4 py-2 bg-slate-800 rounded-full text-sky-400 text-sm font-medium border border-slate-700">Python</span>
-                    <span class="px-4 py-2 bg-slate-800 rounded-full text-sky-400 text-sm font-medium border border-slate-700">Java</span>
-                    <span class="px-4 py-2 bg-slate-800 rounded-full text-sky-400 text-sm font-medium border border-slate-700">Machine Learning</span>
-                    <span class="px-4 py-2 bg-slate-800 rounded-full text-sky-400 text-sm font-medium border border-slate-700">SQL</span>
-                    <span class="px-4 py-2 bg-slate-800 rounded-full text-sky-400 text-sm font-medium border border-slate-700">Full-Stack Dev</span>
+    <section id="projects" class="max-w-6xl mx-auto py-32 px-6">
+        <div class="flex items-center gap-4 mb-16">
+            <h2 class="text-4xl font-bold">Featured Projects</h2>
+            <div class="h-px bg-slate-700 flex-grow"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="glass p-1 rounded-3xl hover-glow transition-all">
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6 text-sky-400 text-2xl">
+                        <i class="fa-solid fa-microchip"></i>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Diabetes Risk Analytics</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        An end-to-end Machine Learning deployment using <span class="text-slate-200">XGBoost</span> and <span class="text-slate-200">SHAP</span>. Features a real-time interactive dashboard for predictive health diagnostics.
+                    </p>
+                    <div class="flex gap-3">
+                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">PYTHON</span>
+                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">DASH</span>
+                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">RENDER</span>
+                    </div>
                 </div>
             </div>
-            <div>
-                <h2 class="text-3xl font-bold mb-8">Leadership Roles</h2>
-                <ul class="space-y-4">
-                    <li class="flex items-start gap-4">
-                        <div class="text-sky-500 mt-1"><i class="fa-solid fa-check-circle"></i></div>
-                        <div>
-                            <p class="font-bold">HOD: Finance | CLC</p>
-                            <p class="text-slate-400 text-sm">Managing budgetary governance for the 2026 term.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <div class="text-sky-500 mt-1"><i class="fa-solid fa-check-circle"></i></div>
-                        <div>
-                            <p class="font-bold">High Jump Coach</p>
-                            <p class="text-slate-400 text-sm">Athletic mentorship and technical training.</p>
-                        </div>
-                    </li>
-                </ul>
+
+            <div class="glass p-1 rounded-3xl hover-glow transition-all">
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6 text-indigo-400 text-2xl">
+                        <i class="fa-solid fa-code-branch"></i>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">C# Tiered Architecture</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        A PRG282 Project implementing a rigorous <span class="text-slate-200">Domain-Data-Presentation</span> separation. Includes custom file handlers and automated summary reporting.
+                    </p>
+                    <div class="flex gap-3">
+                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">C#</span>
+                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">WINFORMS</span>
+                        <span class="text-xs font-bold bg-slate-800 px-3 py-1 rounded text-slate-400">OOP</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center text-slate-500 text-sm">
-        <p>&copy; 2026 Jonathan Rossouw. Built from scratch with Tailwind CSS.</p>
+    <section id="leadership" class="max-w-6xl mx-auto py-32 px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+            <div class="lg:col-span-1">
+                <h2 class="text-4xl font-bold mb-6">Leadership & <br><span class="text-sky-500">Soft Skills</span></h2>
+                <p class="text-slate-400 font-light italic border-l-2 border-sky-500 pl-4">
+                    "I thrive where technical logic meets human leadership."
+                </p>
+            </div>
+            <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="glass p-6 rounded-2xl">
+                    <i class="fa-solid fa-landmark text-sky-500 mb-4 text-xl"></i>
+                    <h4 class="font-bold mb-2">HOD: Finance</h4>
+                    <p class="text-sm text-slate-400">Managing 2026 term budgetary governance for the CLC.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl">
+                    <i class="fa-solid fa-stopwatch-20 text-indigo-500 mb-4 text-xl"></i>
+                    <h4 class="font-bold mb-2">High Jump Coach</h4>
+                    <p class="text-sm text-slate-400">Performance mentorship and biomechanical technical training.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl">
+                    <i class="fa-solid fa-comments text-sky-500 mb-4 text-xl"></i>
+                    <h4 class="font-bold mb-2">Public Speaking</h4>
+                    <p class="text-sm text-slate-400">Departmental presentations and social advocacy.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl">
+                    <i class="fa-solid fa-language text-indigo-500 mb-4 text-xl"></i>
+                    <h4 class="font-bold mb-2">Bilingual Proficiency</h4>
+                    <p class="text-sm text-slate-400">Fluent in English and Afrikaans for global communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center border-t border-slate-800 glass">
+        <p class="text-slate-500 text-sm tracking-widest uppercase">Contact</p>
+        <h2 class="text-3xl font-bold mt-2 mb-8">Let's build something together.</h2>
+        <div class="flex justify-center gap-8 mb-12">
+            <a href="https://github.com/jonathanrossouw" class="hover:text-sky-400 transition text-2xl"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jonathan-rossouw" class="hover:text-sky-400 transition text-2xl"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:jonathanrossouw2@gmail.com" class="hover:text-sky-400 transition text-2xl"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p class="text-slate-600 text-xs">&copy; 2026 Jonathan Rossouw. Handcrafted with Tailwind CSS.</p>
     </footer>
 
 </body>
